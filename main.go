@@ -45,8 +45,8 @@ func main() {
 		time.Sleep(100 * time.Millisecond)
 
 		disp.LcdPrint(0, 0, "漢字だよ")
-		disp.LcdPrint(0, 16, "本行　圭介")
-		disp.LcdPrint(0, 32, "本行　ゆき")
+		disp.LcdPrint(0, 16, "Test Program")
+		disp.LcdPrint(0, 32, "Hello WOrld")
 	}
 
 }
