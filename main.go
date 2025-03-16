@@ -2,6 +2,7 @@ package main
 
 import (
 	"AQM1248/LcdProc"
+	"fmt"
 	"machine"
 	"time"
 )
@@ -14,6 +15,8 @@ func timer1ms(ch chan<- bool) {
 }
 func main() {
 	var err error
+	var cnt uint8
+	var str string
 
 	led := machine.LED
 	led.Configure(machine.PinConfig{Mode: machine.PinOutput})
@@ -37,6 +40,7 @@ func main() {
 	for {
 		select {
 		case <-ch:
+			cnt += 1
 			break
 		}
 		led.Low()
@@ -46,7 +50,8 @@ func main() {
 
 		disp.LcdPrint(0, 0, "漢字だよ")
 		disp.LcdPrint(0, 16, "Test Program")
-		disp.LcdPrint(0, 32, "Hello WOrld")
+		str = fmt.Sprintf("Cnt=%d", cnt)
+		disp.LcdPrint(0, 32, str)
 	}
 
 }
